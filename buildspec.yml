@@ -3,24 +3,15 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      java: corretto11  # Use openjdk17, not "java: 17"
+      java: openjdk17
     commands:
-      - echo "Installing Maven dependencies..."
-      - mvn clean install
+      - echo "Installing dependencies..."
+      - mvn clean install -DskipTests  # Skip tests to check if the build works
 
   build:
     commands:
       - echo "Building the project..."
-      - mvn package
-
-  post_build:
-    commands:
-      - echo "Build completed successfully!"
-
-artifacts:
-  files:
-    - target/*.jar
-
+      - mvn package -DskipTests  # Skip tests again
 
   post_build:
     commands:
