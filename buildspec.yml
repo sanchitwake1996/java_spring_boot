@@ -8,10 +8,10 @@ phases:
       - echo "Installing Maven dependencies..."
       - mvn clean install
 
-  pre-build:
+  pre_build:
     commands:
       - echo "Preparing for build"
-      
+
   build:
     commands:
       - echo "Building the project..."
