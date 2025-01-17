@@ -1,0 +1,26 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: openjdk17
+    commands:
+      - echo "Installing Maven dependencies..."
+      - mvn clean install
+
+  pre-build:
+    commands:
+      - echo "Preparing for build"
+      
+  build:
+    commands:
+      - echo "Building the project..."
+      - mvn package
+
+  post_build:
+    commands:
+      - echo "Build completed successfully!"
+
+artifacts:
+  files:
+    - target/*.jar
